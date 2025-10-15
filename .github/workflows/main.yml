@@ -23,3 +23,48 @@ jobs:
         run: |
           echo "The repository ${{ github.repository }} contains the following files:"
           tree
+          
+  Test:
+    runs-on: ubunt-latest
+    if: github.event.name = 'workflow_dispatch'
+    needs: [Build]
+    environment: Test
+    steps:
+      - run: echo "🧪 Testing..."
+
+
+  Test-Load:
+    runs-on: ubunt-latest
+    if: github.event.name = 'workflow_dispatch'
+    needs: [Build]
+    environment: Test-Load
+    steps:
+      - run: | 
+            echo "🧪 Testing..."
+            sleep 15
+
+  Production:
+    runs-on: ubunt-latest
+    if: github.event.inputs.environment == 'Production'
+    needs: [Test, Test-Load]
+    environment: Production
+    steps:
+      - run: | 
+            steps:
+      - run: |
+          echo "🚀 Step 1..."
+          sleep 10
+      - run: |
+          echo "🚀 Step 2..."
+          sleep 10
+      - run: |
+          echo "🚀 Step 3..."
+          sleep 10
+      - run: |
+          echo "🚀 Step 4..."
+          sleep 10
+      - run: |
+          echo "🚀 Step 5..."
+          sleep 10
+    
+  
