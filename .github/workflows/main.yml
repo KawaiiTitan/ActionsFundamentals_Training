@@ -25,7 +25,7 @@ jobs:
           tree
           
   Test:
-    runs-on: ubunt-latest
+    runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
     needs: [Build]
     environment: Test
@@ -34,7 +34,7 @@ jobs:
 
 
   Test-Load:
-    runs-on: ubunt-latest
+    runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch' 
     needs: [Build]
     environment: Test-Load
