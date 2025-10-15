@@ -61,6 +61,8 @@ The workshop is designed for developers that have used other platforms like Azur
 
 For this workshop you need the following:
 
+pushing commit
+
 - A laptop (Windows, Mac, or Linux)
 - A free account for https://github.com
 
